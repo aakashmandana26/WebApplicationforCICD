@@ -1,0 +1,13 @@
+@WebApplicationforCICD_HostAddress = http://localhost:5025
+### Get all products
+GET {{WebApplicationforCICD_HostAddress}}/api/products
+Accept: application/json
+### Get product by ID
+GET {{WebApplicationforCICD_HostAddress}}/api/products/1
+### Create a product
+POST {{WebApplicationforCICD_HostAddress}}/api/products
+Content-Type: application/json
+{
+  "name": "Keyboard",
+  "price": 79.99
+}
