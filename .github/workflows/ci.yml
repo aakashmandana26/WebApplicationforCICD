@@ -25,5 +25,3 @@ jobs:
       - name: Build
         run: dotnet build WebApplicationforCICD.sln --configuration Release --no-restore
 
-      - name: Publish
-        run: dotnet publish WebApplicationforCICD/WebApplicationforCICD.csproj --configuration Release --no-build --output ./artifacts/publish
