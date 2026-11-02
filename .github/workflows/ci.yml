@@ -25,3 +25,25 @@ jobs:
       - name: Build
         run: dotnet build WebApplicationforCICD.sln --configuration Release --no-restore
 
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Log in to Docker Hub
+          uses: docker/login-action@v3
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v6
+          with:
+            context: .
+            push: true
+            tags: |
+                aakashmandana26/webappforcicd:latest
+                aakashmandana26/webappforcicd:${{ github.sha }}  
+   

@@ -1,0 +1,12 @@
+**/.git
+**/.github
+**/.vs
+**/.vscode
+**/*.*proj.user
+**/bin
+**/obj
+**/out
+**/.env
+**/Dockerfile*
+**/.dockerignore
+**/*.md
